@@ -1,1 +1,938 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_cb280326ae7cf144463ed2ab424d522c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
 
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<script>
+let existingLine;
+
+document.addEventListener("DOMContentLoaded", function() {
+    const mapElem = document.querySelector(".folium-map");
+    if (!mapElem) return;
+
+    const mapId = mapElem.id;
+    const leafletMap = window[mapId];
+
+    window.drawLine = function(origin, destination) {
+        if (existingLine) {
+            leafletMap.removeLayer(existingLine);
+        }
+        existingLine = L.polyline([origin, destination], {
+            color: 'green',
+            weight: 4,
+            opacity: 0.8
+        }).addTo(leafletMap);
+    };
+});
+</script>
+    
+            <div class="folium-map" id="map_cb280326ae7cf144463ed2ab424d522c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_cb280326ae7cf144463ed2ab424d522c = L.map(
+                "map_cb280326ae7cf144463ed2ab424d522c",
+                {
+                    center: [32.7825, -96.8005],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d972216004caab1451876472905d67a5 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d972216004caab1451876472905d67a5.addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var circle_f0dec2eee6da1c1093e1f255150e7fba = L.circle(
+                [32.7825, -96.8005],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000, "stroke": true, "weight": 3}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+        var popup_9ae9ad7a9909ec8011ecdc8e6af52bf9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2eabc645226b07d73087bcaa0a18626c = $(`<div id="html_2eabc645226b07d73087bcaa0a18626c" style="width: 100.0%; height: 100.0%;">3km Radius</div>`)[0];
+                popup_9ae9ad7a9909ec8011ecdc8e6af52bf9.setContent(html_2eabc645226b07d73087bcaa0a18626c);
+            
+        
+
+        circle_f0dec2eee6da1c1093e1f255150e7fba.bindPopup(popup_9ae9ad7a9909ec8011ecdc8e6af52bf9)
+        ;
+
+        
+    
+    
+            var marker_1d39a1baabc87126c523d18db894e81d = L.marker(
+                [32.7825, -96.8005],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_b04fb9335a67282b834142eee2fed06c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_1d39a1baabc87126c523d18db894e81d.bindTooltip(
+                `<div>
+                     Frankie's
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1d39a1baabc87126c523d18db894e81d.setIcon(icon_b04fb9335a67282b834142eee2fed06c);
+            
+    
+            var marker_e652807c15945de70a8289b0caaea1c8 = L.marker(
+                [32.7857161, -96.8017967],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_7c57c97416f5f7c489efd02e92cb8e8b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f98d975cb85150deb00c731211e978eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3bbf967e7f5489c708e4e90d898848a3 = $(`<div id="html_3bbf967e7f5489c708e4e90d898848a3" style="width: 100.0%; height: 100.0%;"><b>Fairmont Dallas</b><br>1717 North Akard Street, Dallas<br>Rating: 4.3<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.7857161, -96.8017967])">Draw Line to Here</a>     </div>`)[0];
+                popup_f98d975cb85150deb00c731211e978eb.setContent(html_3bbf967e7f5489c708e4e90d898848a3);
+            
+        
+
+        marker_e652807c15945de70a8289b0caaea1c8.bindPopup(popup_f98d975cb85150deb00c731211e978eb)
+        ;
+
+        
+    
+    
+                marker_e652807c15945de70a8289b0caaea1c8.setIcon(icon_7c57c97416f5f7c489efd02e92cb8e8b);
+            
+    
+            var marker_f51aa932daeae300410ba92a3ba5b240 = L.marker(
+                [32.794261, -96.80141599999999],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_cf6bd5772c1f77cd1894b471f960206f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0cf89d90646e1261f1405e402e9efd56 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1b7f83f747624a57ddbc06be1c9947ea = $(`<div id="html_1b7f83f747624a57ddbc06be1c9947ea" style="width: 100.0%; height: 100.0%;"><b>Hotel ZaZa Dallas Uptown</b><br>2332 Leonard Street, Dallas<br>Rating: 4.6<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.794261, -96.80141599999999])">Draw Line to Here</a>     </div>`)[0];
+                popup_0cf89d90646e1261f1405e402e9efd56.setContent(html_1b7f83f747624a57ddbc06be1c9947ea);
+            
+        
+
+        marker_f51aa932daeae300410ba92a3ba5b240.bindPopup(popup_0cf89d90646e1261f1405e402e9efd56)
+        ;
+
+        
+    
+    
+                marker_f51aa932daeae300410ba92a3ba5b240.setIcon(icon_cf6bd5772c1f77cd1894b471f960206f);
+            
+    
+            var marker_e832013e65a1cb6c7a1366cfcac0c656 = L.marker(
+                [32.80420359999999, -96.80744759999999],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_3cfd27e7cc6e39815e7c967e0cf903e1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_badfbef778358de796c3f5ad8f35d37e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_62b030c0b4e043b7a845504ed99bdfdb = $(`<div id="html_62b030c0b4e043b7a845504ed99bdfdb" style="width: 100.0%; height: 100.0%;"><b>Rosewood Mansion on Turtle Creek</b><br>2821 Turtle Creek Boulevard, Dallas<br>Rating: 4.7<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.80420359999999, -96.80744759999999])">Draw Line to Here</a>     </div>`)[0];
+                popup_badfbef778358de796c3f5ad8f35d37e.setContent(html_62b030c0b4e043b7a845504ed99bdfdb);
+            
+        
+
+        marker_e832013e65a1cb6c7a1366cfcac0c656.bindPopup(popup_badfbef778358de796c3f5ad8f35d37e)
+        ;
+
+        
+    
+    
+                marker_e832013e65a1cb6c7a1366cfcac0c656.setIcon(icon_3cfd27e7cc6e39815e7c967e0cf903e1);
+            
+    
+            var marker_347f5a8185cc6680a947dc5bb0b8cad5 = L.marker(
+                [32.7834737, -96.805358],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_28d6f908b3c1234fe00d4bb4581add51 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8643e8d45ae4bdd1396468c0c2d3bfb1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5ff51fa47ba1177c24ec3be6ecf6378d = $(`<div id="html_5ff51fa47ba1177c24ec3be6ecf6378d" style="width: 100.0%; height: 100.0%;"><b>The Dallas World Aquarium</b><br>1801 North Griffin Street, Dallas<br>Rating: 4.4<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.7834737, -96.805358])">Draw Line to Here</a>     </div>`)[0];
+                popup_8643e8d45ae4bdd1396468c0c2d3bfb1.setContent(html_5ff51fa47ba1177c24ec3be6ecf6378d);
+            
+        
+
+        marker_347f5a8185cc6680a947dc5bb0b8cad5.bindPopup(popup_8643e8d45ae4bdd1396468c0c2d3bfb1)
+        ;
+
+        
+    
+    
+                marker_347f5a8185cc6680a947dc5bb0b8cad5.setIcon(icon_28d6f908b3c1234fe00d4bb4581add51);
+            
+    
+            var marker_a8b15771bf568f17fa7922a66c111377 = L.marker(
+                [32.7941298, -96.8064069],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_ab530a66b42f2ffe8e20ad8406572764 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5818a2011975e24ea7f03d6f0a803fdc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c2e75ee20e47deb5d8fa9e994a295000 = $(`<div id="html_c2e75ee20e47deb5d8fa9e994a295000" style="width: 100.0%; height: 100.0%;"><b>Ocean Prime</b><br>2101 Cedar Springs Road #150, Dallas<br>Rating: 4.6<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.7941298, -96.8064069])">Draw Line to Here</a>     </div>`)[0];
+                popup_5818a2011975e24ea7f03d6f0a803fdc.setContent(html_c2e75ee20e47deb5d8fa9e994a295000);
+            
+        
+
+        marker_a8b15771bf568f17fa7922a66c111377.bindPopup(popup_5818a2011975e24ea7f03d6f0a803fdc)
+        ;
+
+        
+    
+    
+                marker_a8b15771bf568f17fa7922a66c111377.setIcon(icon_ab530a66b42f2ffe8e20ad8406572764);
+            
+    
+            var marker_30c3f2a85dc5c506bc2a1901e7b0f532 = L.marker(
+                [32.7845906, -96.80850430000001],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_d74e1463488e7a423883bdef3c3e9741 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_15bf67f3260a02075160d3faed01cea7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fb407da61997c7d53bcf1975e969b91e = $(`<div id="html_fb407da61997c7d53bcf1975e969b91e" style="width: 100.0%; height: 100.0%;"><b>Hooters</b><br>2201 North Lamar Street, Dallas<br>Rating: 3.9<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.7845906, -96.80850430000001])">Draw Line to Here</a>     </div>`)[0];
+                popup_15bf67f3260a02075160d3faed01cea7.setContent(html_fb407da61997c7d53bcf1975e969b91e);
+            
+        
+
+        marker_30c3f2a85dc5c506bc2a1901e7b0f532.bindPopup(popup_15bf67f3260a02075160d3faed01cea7)
+        ;
+
+        
+    
+    
+                marker_30c3f2a85dc5c506bc2a1901e7b0f532.setIcon(icon_d74e1463488e7a423883bdef3c3e9741);
+            
+    
+            var marker_1d07e65035383d9f7b93cb20469e1886 = L.marker(
+                [32.77754060000001, -96.79006360000001],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_853e4b5ad378c9ee79e9cd373c493f5f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_684cd1d43c3d9a96179a602e47e04c44 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_80a773093f4bf55c663592c198a80e50 = $(`<div id="html_80a773093f4bf55c663592c198a80e50" style="width: 100.0%; height: 100.0%;"><b>Dallas Farmers Market</b><br>920 South Harwood Street, Dallas<br>Rating: 4.5<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.77754060000001, -96.79006360000001])">Draw Line to Here</a>     </div>`)[0];
+                popup_684cd1d43c3d9a96179a602e47e04c44.setContent(html_80a773093f4bf55c663592c198a80e50);
+            
+        
+
+        marker_1d07e65035383d9f7b93cb20469e1886.bindPopup(popup_684cd1d43c3d9a96179a602e47e04c44)
+        ;
+
+        
+    
+    
+                marker_1d07e65035383d9f7b93cb20469e1886.setIcon(icon_853e4b5ad378c9ee79e9cd373c493f5f);
+            
+    
+            var marker_9f24af62f8e8bc07148cd31b8def24fb = L.marker(
+                [32.79849329999999, -96.8074407],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_4704a41565d65fa5f6ae61b499f07c82 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_25b8653e3787d87c6dde5eced51ca0fc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f3dd84004837a44cfa34af12912a1a30 = $(`<div id="html_f3dd84004837a44cfa34af12912a1a30" style="width: 100.0%; height: 100.0%;"><b>Nick & Sam's</b><br>3008 Maple Avenue, Dallas<br>Rating: 4.3<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.79849329999999, -96.8074407])">Draw Line to Here</a>     </div>`)[0];
+                popup_25b8653e3787d87c6dde5eced51ca0fc.setContent(html_f3dd84004837a44cfa34af12912a1a30);
+            
+        
+
+        marker_9f24af62f8e8bc07148cd31b8def24fb.bindPopup(popup_25b8653e3787d87c6dde5eced51ca0fc)
+        ;
+
+        
+    
+    
+                marker_9f24af62f8e8bc07148cd31b8def24fb.setIcon(icon_4704a41565d65fa5f6ae61b499f07c82);
+            
+    
+            var marker_57afb5ab3fda9d23085e6be3ffb4e93f = L.marker(
+                [32.8015392, -96.8062041],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_d8ea7637b422fabdbc24335f0d91812f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f52813ef169c5dd8152197fd4687fbe3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fbee419944f8fc382ed7720ae516ab2b = $(`<div id="html_fbee419944f8fc382ed7720ae516ab2b" style="width: 100.0%; height: 100.0%;"><b>Texas de Brazil - Dallas</b><br>2727 Cedar Springs Road, Dallas<br>Rating: 4.5<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.8015392, -96.8062041])">Draw Line to Here</a>     </div>`)[0];
+                popup_f52813ef169c5dd8152197fd4687fbe3.setContent(html_fbee419944f8fc382ed7720ae516ab2b);
+            
+        
+
+        marker_57afb5ab3fda9d23085e6be3ffb4e93f.bindPopup(popup_f52813ef169c5dd8152197fd4687fbe3)
+        ;
+
+        
+    
+    
+                marker_57afb5ab3fda9d23085e6be3ffb4e93f.setIcon(icon_d8ea7637b422fabdbc24335f0d91812f);
+            
+    
+            var marker_7154792be5fb6c29575127f94e1b9ad6 = L.marker(
+                [32.7812903, -96.8064213],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_b48e1c706af22230640e1cfba2bbd247 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9d81701126119730601a130ab2590795 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1e0cd2829f9313cb74978ccdb11e437c = $(`<div id="html_1e0cd2829f9313cb74978ccdb11e437c" style="width: 100.0%; height: 100.0%;"><b>Y.O. Ranch Steakhouse</b><br>702 Ross Avenue, Dallas<br>Rating: 4.6<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.7812903, -96.8064213])">Draw Line to Here</a>     </div>`)[0];
+                popup_9d81701126119730601a130ab2590795.setContent(html_1e0cd2829f9313cb74978ccdb11e437c);
+            
+        
+
+        marker_7154792be5fb6c29575127f94e1b9ad6.bindPopup(popup_9d81701126119730601a130ab2590795)
+        ;
+
+        
+    
+    
+                marker_7154792be5fb6c29575127f94e1b9ad6.setIcon(icon_b48e1c706af22230640e1cfba2bbd247);
+            
+    
+            var marker_c58d5b6bbcb173a0ac1c3566406b70c3 = L.marker(
+                [32.7850611, -96.80066769999999],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_63d4abf8249d0bd7a6ff4ca83195af31 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_22558d54757f7ede3b62ac00dc8f7ecf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bc3eda60aeb26542d3851895ddb9938f = $(`<div id="html_bc3eda60aeb26542d3851895ddb9938f" style="width: 100.0%; height: 100.0%;"><b>Dakota's Steakhouse</b><br>600 North Akard Street, Dallas<br>Rating: 4.5<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.7850611, -96.80066769999999])">Draw Line to Here</a>     </div>`)[0];
+                popup_22558d54757f7ede3b62ac00dc8f7ecf.setContent(html_bc3eda60aeb26542d3851895ddb9938f);
+            
+        
+
+        marker_c58d5b6bbcb173a0ac1c3566406b70c3.bindPopup(popup_22558d54757f7ede3b62ac00dc8f7ecf)
+        ;
+
+        
+    
+    
+                marker_c58d5b6bbcb173a0ac1c3566406b70c3.setIcon(icon_63d4abf8249d0bd7a6ff4ca83195af31);
+            
+    
+            var marker_710283bc49c1641b81f9402bfdc6d843 = L.marker(
+                [32.7914296, -96.8037039],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_f5604dba41b1f598596d613ab667d7d2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eca43131672c964ac5c6456e91a2115e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_74775f5d8a8d0d85046b692e8eaacd10 = $(`<div id="html_74775f5d8a8d0d85046b692e8eaacd10" style="width: 100.0%; height: 100.0%;"><b>Del Frisco's Double Eagle Steakhouse</b><br>2323 Olive Street, Dallas<br>Rating: 4.4<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.7914296, -96.8037039])">Draw Line to Here</a>     </div>`)[0];
+                popup_eca43131672c964ac5c6456e91a2115e.setContent(html_74775f5d8a8d0d85046b692e8eaacd10);
+            
+        
+
+        marker_710283bc49c1641b81f9402bfdc6d843.bindPopup(popup_eca43131672c964ac5c6456e91a2115e)
+        ;
+
+        
+    
+    
+                marker_710283bc49c1641b81f9402bfdc6d843.setIcon(icon_f5604dba41b1f598596d613ab667d7d2);
+            
+    
+            var marker_b9743eb15e696f3eff4ded40f22946d8 = L.marker(
+                [32.76698199999999, -96.80719359999999],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_1b68c1eb2624a3249c60b50f6a464658 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_30a4f93c9c89510d2ca11fb8d22a37c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_857a7c9f6e265ef8d3ef230212c53712 = $(`<div id="html_857a7c9f6e265ef8d3ef230212c53712" style="width: 100.0%; height: 100.0%;"><b>Fuel City Dallas</b><br>801 South Riverfront Boulevard, Dallas<br>Rating: 3.9<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.76698199999999, -96.80719359999999])">Draw Line to Here</a>     </div>`)[0];
+                popup_30a4f93c9c89510d2ca11fb8d22a37c1.setContent(html_857a7c9f6e265ef8d3ef230212c53712);
+            
+        
+
+        marker_b9743eb15e696f3eff4ded40f22946d8.bindPopup(popup_30a4f93c9c89510d2ca11fb8d22a37c1)
+        ;
+
+        
+    
+    
+                marker_b9743eb15e696f3eff4ded40f22946d8.setIcon(icon_1b68c1eb2624a3249c60b50f6a464658);
+            
+    
+            var marker_0d9b7c18fe16efd2c0d207db52f08305 = L.marker(
+                [32.78484480000001, -96.8086605],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_39ffa370c186b53b2961ad7c0055a0fe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c80f18e36512f445203696f5b8f617cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_da7a2371c8115d1fb17ae01ed58638e8 = $(`<div id="html_da7a2371c8115d1fb17ae01ed58638e8" style="width: 100.0%; height: 100.0%;"><b>Dick's Last Resort - Dallas</b><br>2211 North Lamar Street, Dallas<br>Rating: 4.2<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.78484480000001, -96.8086605])">Draw Line to Here</a>     </div>`)[0];
+                popup_c80f18e36512f445203696f5b8f617cd.setContent(html_da7a2371c8115d1fb17ae01ed58638e8);
+            
+        
+
+        marker_0d9b7c18fe16efd2c0d207db52f08305.bindPopup(popup_c80f18e36512f445203696f5b8f617cd)
+        ;
+
+        
+    
+    
+                marker_0d9b7c18fe16efd2c0d207db52f08305.setIcon(icon_39ffa370c186b53b2961ad7c0055a0fe);
+            
+    
+            var marker_5406c1bcea3049f982634b33070c82e1 = L.marker(
+                [32.78300710000001, -96.7855034],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_5aaae7251bfd31cd61e78f7213efb989 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_05a54d7748d8ff10df4ab29c0f35efbe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6345852a00e0be7308831b0911273261 = $(`<div id="html_6345852a00e0be7308831b0911273261" style="width: 100.0%; height: 100.0%;"><b>Twisted Root Burger Co.</b><br>2615 Commerce Street, Dallas<br>Rating: 4.6<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.78300710000001, -96.7855034])">Draw Line to Here</a>     </div>`)[0];
+                popup_05a54d7748d8ff10df4ab29c0f35efbe.setContent(html_6345852a00e0be7308831b0911273261);
+            
+        
+
+        marker_5406c1bcea3049f982634b33070c82e1.bindPopup(popup_05a54d7748d8ff10df4ab29c0f35efbe)
+        ;
+
+        
+    
+    
+                marker_5406c1bcea3049f982634b33070c82e1.setIcon(icon_5aaae7251bfd31cd61e78f7213efb989);
+            
+    
+            var marker_848514937d5fd097124159a5037cef12 = L.marker(
+                [32.787446, -96.8048645],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_185e5370e0c8bc270baf918dc4a71587 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3dd5a59f3f48a90b08c015c3bf4cf0a1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a920c574505e54bb166993a247618ff6 = $(`<div id="html_a920c574505e54bb166993a247618ff6" style="width: 100.0%; height: 100.0%;"><b>El Fenix</b><br>1601 McKinney Avenue Downtown #1, Dallas<br>Rating: 4.2<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.787446, -96.8048645])">Draw Line to Here</a>     </div>`)[0];
+                popup_3dd5a59f3f48a90b08c015c3bf4cf0a1.setContent(html_a920c574505e54bb166993a247618ff6);
+            
+        
+
+        marker_848514937d5fd097124159a5037cef12.bindPopup(popup_3dd5a59f3f48a90b08c015c3bf4cf0a1)
+        ;
+
+        
+    
+    
+                marker_848514937d5fd097124159a5037cef12.setIcon(icon_185e5370e0c8bc270baf918dc4a71587);
+            
+    
+            var marker_1ed4157eb25f65c93d7de4772545ac11 = L.marker(
+                [32.7816329, -96.8072558],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_d9540914a74234691fa331e35b20f8de = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5c6a605e5041847f0ac954cb26f2f88a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1727385909277bb32ade74625001920c = $(`<div id="html_1727385909277bb32ade74625001920c" style="width: 100.0%; height: 100.0%;"><b>Rj Mexican Cuisine</b><br>1701 North Market Street #102, Dallas<br>Rating: 4.8<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.7816329, -96.8072558])">Draw Line to Here</a>     </div>`)[0];
+                popup_5c6a605e5041847f0ac954cb26f2f88a.setContent(html_1727385909277bb32ade74625001920c);
+            
+        
+
+        marker_1ed4157eb25f65c93d7de4772545ac11.bindPopup(popup_5c6a605e5041847f0ac954cb26f2f88a)
+        ;
+
+        
+    
+    
+                marker_1ed4157eb25f65c93d7de4772545ac11.setIcon(icon_d9540914a74234691fa331e35b20f8de);
+            
+    
+            var marker_48d1fc6bb6d02edf17a96b42d5e005d6 = L.marker(
+                [32.7808324, -96.7992908],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_6de70e91af97e06fad81f32347c746b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b1d2238289d1fe6a40161e5f722bbd3c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e8a5c3336a1bf2ef973f27c51afa9823 = $(`<div id="html_e8a5c3336a1bf2ef973f27c51afa9823" style="width: 100.0%; height: 100.0%;"><b>Dallas Fish Market</b><br>1501 Main Street, Dallas<br>Rating: 4.3<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.7808324, -96.7992908])">Draw Line to Here</a>     </div>`)[0];
+                popup_b1d2238289d1fe6a40161e5f722bbd3c.setContent(html_e8a5c3336a1bf2ef973f27c51afa9823);
+            
+        
+
+        marker_48d1fc6bb6d02edf17a96b42d5e005d6.bindPopup(popup_b1d2238289d1fe6a40161e5f722bbd3c)
+        ;
+
+        
+    
+    
+                marker_48d1fc6bb6d02edf17a96b42d5e005d6.setIcon(icon_6de70e91af97e06fad81f32347c746b2);
+            
+    
+            var marker_2b16aedcfe18896431306c1af8a2c12f = L.marker(
+                [32.7948633, -96.8029816],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_7a4640a4e58789d421e21de3fa19e24f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9b93c9818fa702b2f2239882b0fccf94 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8640be1c55c5b2f489cc98aabd26bb6d = $(`<div id="html_8640be1c55c5b2f489cc98aabd26bb6d" style="width: 100.0%; height: 100.0%;"><b>Truluck's Ocean's Finest Seafood and Crab</b><br>2401 McKinney Avenue, Dallas<br>Rating: 4.6<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.7948633, -96.8029816])">Draw Line to Here</a>     </div>`)[0];
+                popup_9b93c9818fa702b2f2239882b0fccf94.setContent(html_8640be1c55c5b2f489cc98aabd26bb6d);
+            
+        
+
+        marker_2b16aedcfe18896431306c1af8a2c12f.bindPopup(popup_9b93c9818fa702b2f2239882b0fccf94)
+        ;
+
+        
+    
+    
+                marker_2b16aedcfe18896431306c1af8a2c12f.setIcon(icon_7a4640a4e58789d421e21de3fa19e24f);
+            
+    
+            var marker_9e36934c58cbb0ff4258688715b7c715 = L.marker(
+                [32.792057, -96.79550470000001],
+                {
+}
+            ).addTo(map_cb280326ae7cf144463ed2ab424d522c);
+        
+    
+            var icon_9e69a8f7b0e0c7c3add403a470d441b1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8e9da7934135b975b89a62e54c4c4ce9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cf0e07eebdd9e0bad349be181f355d31 = $(`<div id="html_cf0e07eebdd9e0bad349be181f355d31" style="width: 100.0%; height: 100.0%;"><b>Tei-An</b><br>1722 Routh Street Suite110, Dallas<br>Rating: 4.4<br>     <a href="javascript:void(0)" onclick="drawLine([32.7825, -96.8005], [32.792057, -96.79550470000001])">Draw Line to Here</a>     </div>`)[0];
+                popup_8e9da7934135b975b89a62e54c4c4ce9.setContent(html_cf0e07eebdd9e0bad349be181f355d31);
+            
+        
+
+        marker_9e36934c58cbb0ff4258688715b7c715.bindPopup(popup_8e9da7934135b975b89a62e54c4c4ce9)
+        ;
+
+        
+    
+    
+                marker_9e36934c58cbb0ff4258688715b7c715.setIcon(icon_9e69a8f7b0e0c7c3add403a470d441b1);
+            
+</script>
+</html>
